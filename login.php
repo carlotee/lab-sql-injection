@@ -12,7 +12,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $login = $_POST['login'];
     $password = $_POST['password'];
 
-    // ❌ VULNERABLE (para tu laboratorio)
     $sql = "SELECT * FROM usuarios 
             WHERE (usuario = '$login' OR email = '$login') 
             AND password = '$password'";
@@ -22,11 +21,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($resultado && $resultado->num_rows > 0) {
         $usuario = $resultado->fetch_assoc();
 
-        // Guardar sesión
+
         $_SESSION['id'] = $usuario['id'];
         $_SESSION['usuario'] = $usuario['usuario'];
 
-        // Redirigir al dashboard
         header("Location: dashboard.php");
         exit();
     } else {
