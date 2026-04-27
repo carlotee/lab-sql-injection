@@ -21,7 +21,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($resultado && $resultado->num_rows > 0) {
         $usuario = $resultado->fetch_assoc();
 
-
         $_SESSION['id'] = $usuario['id'];
         $_SESSION['usuario'] = $usuario['usuario'];
 
