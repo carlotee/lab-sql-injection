@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-// Verificar sesión
 if (!isset($_SESSION['id'])) {
     header("Location: login.php");
     exit();
